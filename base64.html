@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base64 Decoder & File Signature Collection</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4a90e2;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        section {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+        }
+
+        h2 {
+            color: #4a90e2;
+            margin-top: 0;
+        }
+
+        /* Base64 Decoder Section */
+        .decoder-section textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .decoder-section button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4a90e2;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .decoder-section button:hover {
+            background-color: #357ab8;
+        }
+
+        .output-box {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            font-family: monospace;
+        }
+
+        /* File Signature Collection Section */
+        .signature-section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .signature-section table th,
+        .signature-section table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .signature-section table th {
+            background-color: #4a90e2;
+            color: #fff;
+        }
+
+        .signature-section table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .signature-section table tr:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            section {
+                padding: 10px;
+                margin: 10px;
+            }
+
+            .decoder-section textarea {
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Base64 Decoder & File Signature Collection</h1>
+    </header>
+
+    <!-- Base64 Decoder Section -->
+    <section class="decoder-section">
+        <h2>Base64 Decoder</h2>
+        <p>Enter your Base64 encoded text and click "Decode" to see the result:</p>
+        <textarea id="base64-input" placeholder="Enter Base64 encoded text here..."></textarea>
+        <button onclick="decodeBase64()">Decode</button>
+        <p><strong>Decoded Result:</strong></p>
+        <div id="decoded-output" class="output-box"></div>
+    </section>
+
+    <!-- File Signature Collection Section -->
+    <section class="signature-section">
+        <h2>File Signature Collection</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>File Type</th>
+                    <th>File Extension</th>
+                    <th>File Signature (Hex)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>JPEG Image</td>
+                    <td>.jpg, .jpeg</td>
+                    <td>FF D8 FF</td>
+                </tr>
+                <tr>
+                    <td>PNG Image</td>
+                    <td>.png</td>
+                    <td>89 50 4E 47 0D 0A 1A 0A</td>
+                </tr>
+                <tr>
+                    <td>GIF Image</td>
+                    <td>.gif</td>
+                    <td>47 49 46 38</td>
+                </tr>
+                <tr>
+                    <td>PDF Document</td>
+                    <td>.pdf</td>
+                    <td>25 50 44 46</td>
+                </tr>
+                <tr>
+                    <td>ZIP Archive</td>
+                    <td>.zip</td>
+                    <td>50 4B 03 04</td>
+                </tr>
+                <tr>
+                    <td>RAR Archive</td>
+                    <td>.rar</td>
+                    <td>52 61 72 21 1A 07 00</td>
+                </tr>
+                <tr>
+                    <td>EXE File</td>
+                    <td>.exe</td>
+                    <td>4D 5A</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <script>
+        // Base64 Decoding Function
+        function decodeBase64() {
+            let input = document.getElementById('base64-input').value;
+            try {
+                let decoded = atob(input);  // atob() function decodes Base64
+                document.getElementById('decoded-output').innerText = decoded;
+            } catch (e) {
+                document.getElementById('decoded-output').innerText = 'Invalid Base64 input!';
+            }
+        }
+    </script>
+
+</body>
+</html>
