@@ -3,153 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - 김태헌</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <script>
-        function toggleBox(id) {
-            const box = document.getElementById(id);
-            box.style.display = box.style.display === 'none' ? 'block' : 'none';
+    <title>Combined Icons and Planet Animation</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.1/css/all.css">
+    <style>
+        body {
+            background: #101227;
+            height: 100vh;
+            display: flex;
+            flex-direction: column; /* Column direction for stacking */
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            font-size: 12px;
         }
-    </script>
+
+        .icon-container {
+            display: flex;
+            justify-content: space-between; /* Align icons */
+            width: 80%; /* Container width */
+            margin-bottom: 20px; /* Space between icon container and planet */
+        }
+
+        .icon-group {
+            display: flex;
+            flex-direction: row; /* Arrange icons horizontally */
+            gap: 20px; /* Icon spacing */
+        }
+
+        li {
+            list-style: none;
+            --color: #ff0050;
+        }
+
+        a {
+            display: flex;
+            width: 80px;
+            height: 80px;
+            background: #18191f;
+            border-radius: 15px;
+            box-shadow: 
+                -2px -2px 3px #ffffff0d,
+                3px 3px 3px #00000033;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;   
+        }
+
+        .fa-brands {
+            font-size: 38px;
+            color: #555;
+        }
+
+        a:hover .fa-brands {
+            color: var(--color);
+            text-shadow: 0 0 30px var(--color);
+        }
+
+        /* Icon color settings */
+        li:nth-child(1) { --color: #ff0050; } /* GitHub */
+        li:nth-child(2) { --color: #4cd137; } /* Sticker */
+        li:nth-child(3) { --color: #ff0050; } /* ReadMe */
+        li:nth-child(4) { --color: #1c7dd5; } /* Instagram */
+
+        .planet {
+            width: 30em;
+            height: 30em;
+            background: white;
+            border-radius: 50%;
+            box-shadow:
+                0 0 5em #fed84c80,
+                0 0 20em 4em #e8a55233,
+                0 0 55em 8em #ff4d4d1a;
+            position: relative;
+        }
+
+        .satellite, .satellite::after {
+            content: "";
+            position: absolute;
+            width: 5em;
+            height: 5em;
+            border-radius: 50%;
+        }
+
+        .satellite {
+            background: #ffedd1;
+            box-shadow: -2em 0 5em -1em #ffedd1;
+            overflow: hidden;
+            transform: 250ms;
+            left: 32em;
+            transform: rotate(20deg);
+            animation: round 5s infinite ease-in-out;
+        }
+
+        .satellite::after {
+            background: #262938;
+            width: 2.5em;
+            left: 2.5em;
+            box-shadow: 0 0 0.75em 0.95em #262938;
+            animation: shadow 5s infinite ease-in-out;
+        }
+
+        @keyframes shadow {
+            0% {
+                width: 2.5em;
+                left: 0;
+            }
+            25% {
+                width: 5em;
+                left: 0;
+            }
+            50% {
+                width: 2.5em;
+                left: 2.5em;
+            }
+            75% {
+                width: 0em;
+                left: 0;
+            }
+            80% {
+                left: 0;
+                box-shadow: 0 0 0.55em 0.75em #262938;
+            }
+            100% {
+                width: 2.5em;
+                left: 0;
+            }
+        }
+
+        @keyframes round {
+            0%, 100% {
+                top: 2em;
+                left: -15em;
+                box-shadow: -2em 0 5em 0.5em #c6836466;
+                z-index: 2;
+            }
+            25% {
+                box-shadow: 0 0 3em 1em #412104b5;
+            }
+            75% {
+                box-shadow: 0 0 3em 1em #101227;
+            }
+            48% {
+                z-index: 2;
+            }
+            50% {
+                left: 40em;
+                top: 20em;
+                z-index: -1;
+                box-shadow: 2em 0 5em 0.5em #845a4682;
+            }
+            99% {
+                z-index: -1;
+            }
+        }
+        
+
+
+    </style>
 </head>
 <body>
-    <audio autoplay loop>
-        <source src="your-audio-file.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <header>
-        <div class="container">
-            <h1>김태헌 Portfolio</h1>
-            <p>Cybersecurity Engineer | Enthusiast | Learner</p>
+    <div class="planet">        
+        <div class="satellite"></div>
+    </div>    
+</body>
+
+<body>
+
+    
+    <div class="icon-container">
+        <!-- 왼쪽 아이콘 그룹 -->
+        <div class="icon-group">
+            <li>
+                <a href="https://github.com/PPlaylist" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://n0v4.tistory.com" target="_blank">
+                    <i class="fa-brands fa-free-code-camp"></i>
+                </a>
+            </li>
         </div>
-    </header>
-    <section id="about">
-        <div class="container">
-            <h2 onclick="toggleBox('aboutContent')">Whoami</h2>
-            <div id="aboutContent" style="display: block;">
-                <ul>
-                    <li><strong>Birth:</strong> 2001.04.16</li>
-                    <li><strong>Email:</strong> <a href="mailto:apr.16th.2001@gmail.com">apr.16th.2001@gmail.com</a></li>
-                    <li><strong>GitHub:</strong> <a href="https://github.com/PPlaylist" target="_blank">github.com/PPlaylist</a></li>
-                    <li><strong>Tech Blog:</strong> <a href="https://n0v4.tistory.com/" target="_blank">https://n0v4.tistory.com/</a></li>
-                    <li><strong>Social:</strong> <a href="https://www.instagram.com/sjg.ox/" target="_blank">Instagram</a></li>
-                </ul>
-            </div>
+        
+        <!-- 오른쪽 아이콘 그룹 -->
+        <div class="icon-group">
+            <li>
+                <a href="main.html">
+                    <i class="fa-brands fa-readme"></i> 
+                </a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/sjg.ox/" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </li>
         </div>
-    </section>
-    <section id="technology">
-        <div class="container">
-            <h2 onclick="toggleBox('technologyContent')">Technology Presentation</h2>
-            <div id="technologyContent" style="display: block;">
-                <p>Research on security in autonomous vehicles and IT & OT consulting.</p>
-                <ul>
-                    <li>Autonomous vehicle security and secure Ethernet technologies</li>
-                    <li>PrintNightmare (CVE-2021-1675)</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    <section id="certifications">
-        <div class="container">
-            <h2 onclick="toggleBox('certificationsContent')">Certifications</h2>
-            <div id="certificationsContent" style="display: block;">
-                <ul>
-                    <li>Network Manager Level 2 - 한국산업인력공단 (2018.10.04)</li>
-                    <li>Information Processing Mechanic - 한국정보통신자격협회 (2019.12.24)</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    <section id="papers">
-        <div class="container">
-            <h2 onclick="toggleBox('papersContent')">Papers</h2>
-            <div id="papersContent" style="display: block;">
-                <ul>
-                    <li>Threat Analysis and Risk Assessment (TARA) using CAN communication - Korean Society of Automotive Engineers (2024.05)</li>
-                    <li>Cybersecurity Threats in Automotive Systems and Software Management - Korean Society of Automotive Engineers (2024.05)</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    <section id="activities">
-        <div class="container">
-            <h2 onclick="toggleBox('activitiesContent')">Activities</h2>
-            <div id="activitiesContent" style="display: block;">
-                <div class="box">
-                    <h3>Junior Security Seminar - Codegate</h3>
-                    <p>2019.07</p>
-                </div>
-                <div class="box">
-                    <h3>Autonomous Vehicle and Secure Ethernet Tech Presentation</h3>
-                    <p>2021.07</p>
-                </div>
-                <div class="box">
-                    <h3>Army Headquarters CERT - Infrastructure/Response Duty</h3>
-                    <p>2022.01 - 2023.07</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="ctf">
-        <div class="container">
-            <h2 onclick="toggleBox('ctfContent')">CTF Competitions</h2>
-            <div id="ctfContent" style="display: block;">
-                <div class="box">
-                    <h3>육군 사이버보안 경진대회</h3>
-                    <p>2023.06 - 10th place</p>
-                </div>
-                <div class="box">
-                    <h3>HackTheon Sejong 2024</h3>
-                    <p>2024.06 - 63rd place, 솔솔한 해커스</p>
-                </div>
-                <div class="box">
-                    <h3>DownUnderCTF 2024</h3>
-                    <p>2024.07 - 47th place, rubiyalab</p>
-                </div>
-                <div class="box">
-                    <h3>ImaginaryCTF 2024</h3>
-                    <p>2024.07 - 40th place, rubiyalab</p>
-                </div>
-                <div class="box">
-                    <h3>IDEKCTF 2024</h3>
-                    <p>2024.08 - 84th place, rubiyalab</p>
-                </div>
-                <div class="box">
-                    <h3>CyberSpace CTF 2024</h3>
-                    <p>2024.09 - 44th place, rubiyalab</p>
-                </div>
-                <div class="box">
-                    <h3>HackTheDrone 2024</h3>
-                    <p>2024.09 - 35th place, May-Day</p>
-                </div>
-                <div class="box">
-                    <h3>CSAW 2024</h3>
-                    <p>2024.09 - 100th place, RUBIYALAB</p>
-                </div>
-                <div class="box">
-                    <h3>snakeCTF 2024 Quals</h3>
-                    <p>2024.09 - 28th place, rubiylab</p>
-                </div>
-                <div class="box">
-                    <h3>RSTCON 2024 CTF</h3>
-                    <p>2024.09 - 3rd place, rubiylab</p>
-                </div>
-                <div class="box">
-                    <h3>PatriotCTF 2024</h3>
-                    <p>2024.09 - 10th place, rubiylab</p>
-                </div>
-                <div class="box">
-                    <h3>FIESTA 2024</h3>
-                    <p>2024.10 - 20th place, 4-Hat</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 김태헌 | All rights reserved</p>
-        </div>
-    </footer>
+    </div>
 </body>
 </html>
