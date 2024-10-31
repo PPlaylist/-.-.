@@ -1,131 +1,380 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
+    <title>Scroll Snap About Me</title>
+
+    <!-- 폰트 로드 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300..900&family=Kablammo&family=Noto+Sans+KR:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap" rel="stylesheet">
+
     <style>
+        /* 기본 폰트 설정 */
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-size: cover;
-            background-color: #f4f5f1;
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            overflow: hidden; /* 스크롤바 숨김 */
+        }
+
+        /* 부모 스크롤 스냅 컨테이너 */
+        .scroll-container {
+            height: 100vh;
+            overflow-y: auto;
+            scroll-snap-type: y mandatory;
+        }
+
+        /* 자식 스크롤 스냅 영역 */
+        .scroll-area {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
             color: #333;
+            scroll-snap-align: start;
+            flex-direction: column;
+            background: #f4f5f1;
+            color: rgb(0, 0, 0);
             text-align: center;
+            font-size: 15px;
+        
+        }.scroll-area1 {
+            height: 300vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: #333;
+            scroll-snap-align: start;
+            flex-direction: column;
+            background: #f4f5f1;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            font-size: 15px;
         }
-        .box {
-            width: 70%;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #f4f5f1;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2 {
-            margin: 20px 0;
-        }
-        a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
+
         .divider {
             width: 80%;
             margin: 20px auto;
             border-bottom: 1px solid #ddd;
         }
-        .box1 {
-            width: 30%;
-            margin: 10px auto;
-            padding: 10px;
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .box, .box4 {
+            width: 45%;
+            padding: 20px;
             background-color: #f4f5f1;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
-        .box2 {
+        .box4 {
+            text-align: left;
+        }
+        .intro {
             width: 60%;
-            margin: 10px auto;
-            padding: 10px;
+            padding: 20px;
             background-color: #f4f5f1;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .tech-stack img {
-            margin: 1px;
+
+        h1, h2 {
+            margin: 20px 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        hr {
+            color: #edf5f3;
         }
     </style>
 </head>
 <body>
-    
-
-    <h1>About Me</h1>
-
-    <div class="box">
-        <h2>Intro</h2>
-        <p><strong>📋 Birth</strong><br>2001.04.16</p>
-        <p><strong>✉️ E-Mail</strong><br><a href="mailto:apr.16th.2001@gmail.com">apr.16th.2001@gmail.com</a></p>
-        <p><strong>😺 Github</strong><br><a href="http://github.com/PPlaylist">github.com/PPlaylist</a></p>
-        <p>💾 <strong>Tech Blog</strong><br><a href="https://n0v4.tistory.com/">https://n0v4.tistory.com/</a></p>
-        <div>
-            <a href="https://dreamhack-readme-stats.vercel.app/api/stats?username=.;,;.">
-                <img src="https://dreamhack-readme-stats.vercel.app/api/stats?username=.;,;." alt="Dreamhack stats">
-            </a>
-            <a href="https://solved.ac/sjgox"></a>
-                <img src="http://mazassumnida.wtf/api/v2/generate_badge?boj=sjgox" alt="Solved.ac Profile">
-            </a>
+    <!-- 1번째 스크롤 끝 -->
+    <div class="scroll-container">
+        <div class="scroll-area">
+            <h1> Portfolio </h1>
+            <div class="intro">
+                <h2>Intro</h2>
+                <p><strong>📋 Birth</strong><br>2001.04.16</p>
+                <p><strong>✉️ E-Mail</strong><br><a href="mailto:apr.16th.2001@gmail.com">apr.16th.2001@gmail.com</a></p>
+                <p><strong>😺 Github</strong><br><a href="http://github.com/PPlaylist">github.com/PPlaylist</a></p>
+                <p>💾 <strong>Tech Blog</strong><br><a href="https://n0v4.tistory.com/">https://n0v4.tistory.com/</a></p>
+                <div>
+                    <a href="https://dreamhack-readme-stats.vercel.app/api/stats?username=.;,;.">
+                        <img src="https://dreamhack-readme-stats.vercel.app/api/stats?username=.;,;." alt="Dreamhack stats">
+                    </a>
+                    <a href="https://solved.ac/sjgox">
+                        <img src="http://mazassumnida.wtf/api/v2/generate_badge?boj=sjgox" alt="Solved.ac Profile">
+                    </a>
+                </div>
+            </div>
         </div>
-
+        <!-- 1번째 스크롤 끝 -->
         
-    </div>
+        <!-- 2번째 스크롤  -->
+        <div class="scroll-area">
+            <div class="divider"></div>
+            <div class="container">
+                <div class="box">
+                    <h2>Languages</h2>
+                    <div class="tech-stack">
+                        <img alt="Python" src="https://img.shields.io/badge/Python-3776AB.svg?&style=for-the-badge&logo=Python&logoColor=white"/>
+                        <img alt="Java" src="https://img.shields.io/badge/Java-007396.svg?&style=for-the-badge&logo=OpenJDK&logoColor=white"/>
+                        <img alt="JavaScript" src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+                        <br>
+                        <img alt="MySQL" src="https://img.shields.io/badge/MySQL-4479A1.svg?&style=for-the-badge&logo=MySQL&logoColor=white"/>
+                        <img alt="HTML5" src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+                        <img alt="CSS3" src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+                        <br>
+                        <img alt="Git" src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
+                        <img alt="AWS" src="https://img.shields.io/badge/aws-232F3E?style=for-the-badge&logo=aws&logoColor=white">
+                        <img alt="C" src="https://img.shields.io/badge/C-1572B6?style=for-the-badge&logo=C&logoColor=white">
 
-    <div class="divider"></div>
+                    <h2>ETC</h2>
+                        <div class="ETC">
+                            <img alt="Linux" src="https://img.shields.io/badge/linux-FCC624?style=flat&logo=linux&logoColor=black">
+                            <img alt="Apache" src="https://img.shields.io/badge/Apache-D22128?style=flat&logo=Apache&logoColor=white">
+                            <img alt="Suricata" src="https://img.shields.io/badge/Suricata-005571?style=flat&logo=JAVA&logoColor=white">
+                            <br>
+                            <img alt="ModSecurity" src="https://img.shields.io/badge/ModSecurity-005571?style=flat&logo=JAVA&logoColor=white">
+                            <img alt="MongoDB" src="https://img.shields.io/badge/MongoDB-009639?style=flat&logo=mongodb&logoColor=white">
+                            <br>
+                            <img alt="GitHub" src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white">
+                            <img alt="Docker" src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=Docker&logoColor=white">
+                        </div>  
+                    </div>
+                </div>
+                
 
-    <div class="box">
-        <h2>Languages</h2>
-        <div class="tech-stack">
-            <img alt="Python" src ="https://img.shields.io/badge/Python-3776AB.svg?&style=for-the-badge&logo=Python&logoColor=white"/>
-            <img alt="Java" src ="https://img.shields.io/badge/Java-007396.svg?&style=for-the-badge&logo=OpenJDK&logoColor=white"/>
-            <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">    
-            <br>
-            <img alt="MySQL" src ="https://img.shields.io/badge/MySQL-4479A1.svg?&style=for-the-badge&logo=MySQL&logoColor=white"/>
-            <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white">
-            <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">
-            <br>
-            <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">
-            <img src="https://img.shields.io/badge/aws-232F3E?style=for-the-badge&logo=aws&logoColor=white">
-            <img src="https://img.shields.io/badge/C-1572B6?style=for-the-badge&logo=C&logoColor=white">
-        
-        
-            <h2>ETC</h2>
-            <div class="ETC">
-
-            <img src="https://img.shields.io/badge/linux-FCC624?style=flat&logo=linux&logoColor=black"> 
-            <img src="https://img.shields.io/badge/Apache-D22128?style=flat&logo=Apache&logoColor=white"> 
-            <img src="https://img.shields.io/badge/Suricata-005571?style=flat&logo=JAVA&logoColor=white"> 
-            
-
-            <br>
-            <img src="https://img.shields.io/badge/ModSecurity-005571?style=flat&logo=JAVA&logoColor=white"> 
-            <img src="https://img.shields.io/badge/MongoDB-009639?style=flat&logo=mongodb&logoColor=white"> 
-            <br>
-            <img src="https://img.shields.io/badge/github-181717?style=flat&logo=github&logoColor=white"> 
-            <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=Docker&logoColor=white"> 
-
-
-
-
+                <div class="box4">
+                    <h2>🪪 Certifications</h2>
+                    <p>네트워크 관리사 2급(2018.10.04)</p>
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);"> 한국산업인력공단</p>
+                    <hr>
+                    <p>정보처리 기능사 (2019.12.24)</p>
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);"> 한국정보통신자격협회</p>
+                </div>
+                
+            </div>
+           
         </div>
+        <!-- 2번째 스크롤 끝 -->
+
+        <!-- 3번째 스크롤  -->
+        <div class="scroll-area">
+            <div class="divider"></div>
+            <div class="container">
+                <div class="box4">
+                    <h2>📜 Paper</h2>
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);"> 위협 분석 및 위험 평가(TARA) 문제 도출 실제 CAN 통신 침입 사례를 중심으로 </p>
+                    <p>2024.05.</p>
+                    <p> 한국자동차공학회 춘계학술대회</p>
+                    <p> 공동 저자</p>
+                    <hr>
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);"> 차량 해킹사례를 통한 보안 위협 및 TARA 연구</p>
+                        <p>2024.05.</p>
+                        <p> 한국자동차공학회 춘계학술대회</p>
+                        <p> 1저자</p>
+                        <hr>
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);"> 자동차의 사이버보안 취약점과 소프트웨어 관리 체계의 동향 분석 </p>
+                        <p>2024.05.</p>
+                        <p> 한국자동차공학회 춘계학술대회</p>
+                        <p> 공동 저자</p>
+                        <p> 우수 논문 수상 </p>
+                        <hr>
+
+                </div>
+                
+                <div class="box4">
+                    <h2>📊 Technology Presentation</h2>
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);"> 자율주행자동차와 보안 이더넷 기술 </p>
+                    <p> 2019.03.</p>
+                    <p> 연구분야 : 자율주행자동차 보안</p>
+                    <p> 코드게이트 주니어 보안 세미나 </p>
+                    <hr>
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);"> PrintNightmare </p>
+                        <p> 2021.11.</p>
+                        <p> 연구분야 : CVE-2021-1675  </p>
+                        <p> 건양대학교 학술제 </p>
+                    <hr>
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);"> IT & OT 보안컨설팅 </p>
+                        <p> 2023.01.</p>
+                        <p> 연구분야 : IT & OT 보안 컨설팅 </p>
+                        <p> 화이트햇 스쿨 </p>
+                        <p> 우수 프로젝트 선정 </p>
+                    <hr>
+                </div>
+                <!-- 3번째 스크롤 끝  -->
+            </div>
         </div>
-    </div>
+            <!-- 4번째 스크롤  -->
+        <div class="scroll-area1">
+            <div class="divider"></div>
+            <div class="container">
+                <div class="box4">
+                    <h2>🖥 Activities </h2>
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">코드게이트 주니어 보안세미나</span></p>
+                    <p>2019.07.</p>
+                    <p>자율주행차와 보안이더넷 기술 발표</p>
+                    <hr>
+                    <p><a href="https://news.unn.net/news/articleView.html?idxno=513351" style="background-color: rgba(247, 247, 69, 0.817);">4회 K-CTF & K-CTF Jr, 운영진</a></p>
+                    <p>2021.07.</p>
+                    <p>CTF 관제시스템 구축 및 관제</p>
+                    <hr>
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">육군 사령부 CERT</span></p>
+                    <p>2022.01. ~ 2023.07.</p>
+                    <p>기반/체계대응병 근무</p>
+                    <hr>
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">K-Shield Start-Up</span></p>
+                    <p>2023.4. ~ 2023.4.</p>
+                    <p>한국정보보호교육센터</p>
+                    <hr>
+                    <p><a href="https://m.boannews.com/html/detail.html?tab_type=1&idx=123735" style="background-color: rgba(247, 247, 69, 0.817);">CSA & KITRI Exchange Program</a></p>
+                    <p>2023.11.07 ~ 2023.11.13</p>
+                    <p>싱가포르 교육생들과 교육 & CTF</p>
+                    <hr>
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">ICT 융합보안크루 : 자율주행차 보안 프로젝트</span></p>
+                    <p>2023.12. ~ 2024.05.</p>
+                    <p>RC카 이용한 자율주행차 인지 시스템 모의 차량 간 통신 환경 보안 구축 및 공격 구현</p>
+                    <hr>
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">28회 해킹 캠프 참가</span></p>
+                    <p>2024.02.</p>
+                    <p>🏴‍☠️</p>
+                    <hr>
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">화이트햇 스쿨 1기 수료 & 우수 프로젝트 : 컨설팀</span></p>
+                    <p>2023.09. ~ 2024.03.</p>
+                    <p>IT & OT 보안 컨설팅 - 기술적 컨설팅</p>
+                    <hr>
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">DSC 모빌리티 창업교육 - 첨단센서융합디바이스창업</span></p>
+                    <p>2023.11.07 ~ 2023.11.13</p>
+                    <p>첨단센서융합디바이스사업단</p>
+                    <hr>
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">[초급] 침해사고 대응훈련</span></p>
+                    <p>2024.05.</p>
+                    <p>MITRE ATT&CK 활용</p>
+                    <hr>
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">2024 온택트 융합보안</span></p>
+                    <p>2024.04. ~ 2024.06</p>
+                    <p>2024 디지털포렌식(1차, 2H), 2024 OT보안 개론(1차, 2H), 2024 네트워크 보안(1차, 2H), 2024 접근통제 및 인증(1차, 2H)</p>
+                    <hr>
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">22회 임베디드 SW 경진대회 본선</span></p>
+                    <p>2024.06 ~ 2024.11</p>
+                    <p>MAC 주소를 활용 기반의 PnC 서비스 취약점 개선</p>
+                    <hr>
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">2024 제2회 KISIA 정보보호 개발자 해커톤 본선</span></p>
+                    <p>2024.08 ~ 2024.08</p>
+                    <p>MAC 주소를 활용 기반의 PnC 서비스 취약점 개선</p>
+                    <hr>
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">업투 서포터즈 3기</span></p>
+                    <p>2024.09 ~ 2024.12</p>
+                    <p>업투 서포터즈 3기</p>
+                    <hr>
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">아주경제 2024 GGGF 서포터즈</span></p>
+                    <p>2024.09</p>
+                    <p>아주경제 GGGF 2024 서포터즈</p>
+                    <hr>
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">2024 제5회 호남사이버보안컨퍼런스 웹 취약점 경진대회</span></p>
+                    <p>2024.10</p>
+                    <p>웹 취약점 경진 대회 우수상</p>
+                    <hr>
+                </div>
 
-    <div class="divider"></div>
+                <div class="box4">
+                    <h2>🚩 CTF </h2>
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">육군 사이버보안 경진대회</span></p>
+                    <p>2023.06</p>
+                    <p>10th</p>
+                    <hr>
 
-    <div class="box2">
-        <h2>👨‍💻 Experience</h2>
-        <p>March 2022 ~</p>
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">HackTheon Sejong 2024</span></p>
+                    <p>2024.06</p>
+                    <p>63th, 솔솔한 해커스</p>
+                    <hr>
+
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">DownUnderCTF 2024</span></p>
+                    <p>2024.07</p>
+                    <p>47th, rubiyalab</p>
+                    <hr>
+
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">ImaginaryCTF 2024</span></p>
+                    <p>2024.07</p>
+                    <p>40th, rubiyalab</p>
+                    <hr>
+
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">CCE 2024</span></p>
+                    <p>2024.08</p>
+                    <p>17th, 한량네명CCE호시탐탐</p>
+                    <hr>
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">IDEKCTF 2024</span></p>
+                    <p>2024.08</p>
+                    <p>84th, rubiyalab</p>
+                    <hr>
+
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">CyberSpace CTF 2024</span></p>
+                    <p>2024.09</p>
+                    <p>44th, rubiyalab</p>
+                    <hr>
+
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">HackTheDrone 2024</span></p>
+                    <p>2024.09</p>
+                    <p>35th, May-Day</p>
+                    <hr>
+
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">CSAW’ 2024</span></p>
+                    <p>2024.09</p>
+                    <p>100th, RUBIYALAB</p>
+                    <hr>
+
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">snakeCTF 2024 Quals</span></p>
+                    <p>2024.09</p>
+                    <p>28th, rubiylab</p>
+                    <hr>
+
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">RSTCON 2024 CTF</span></p>
+                    <p>2024.09</p>
+                    <p>3th, rubiylab</p>
+                    <hr>
+
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">PatriotCTF 2024</span></p>
+                    <p>2024.09</p>
+                    <p>10th, rubiylab</p>
+                    <hr>
+
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">FIESTA 2024</span></p>
+                    <p>2024.10</p>
+                    <p>20th, 4-Hat</p>
+                    <hr>
+
+                    <p><span style="background-color: rgba(247, 247, 69, 0.817);">2024 한국남부발전 정보보안경진대회</span></p>
+                    <p>2024.10</p>
+                    <p>5th, 캐치 ! 해킹핑</p>
+                     <hr>
+                </div>
+                <!-- 4번째 스크롤 끝  -->
+            </div>
+        </div>
     </div>
 </body>
 </html>
